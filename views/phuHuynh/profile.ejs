@@ -1,0 +1,199 @@
+<!--  -->
+<!------ Include the above in your HEAD tag ---------->
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css" />
+<link rel='stylesheet' href='/stylesheets/style.css' />
+
+<body ng-app="user" ng-controller="profileController" style="background-image: url(../images/hero-bg.jpg)">
+    <% include ../header.ejs %>
+    <div style="margin-top:6%" class="container">
+        <div class="row">
+            <div class="col-12">
+                <div style="background: rgba(255,255,255,.7);" class="card">
+
+                    <div class="card-body">
+                        <div class="card-title mb-4">
+                            <div class="d-flex justify-content-start">
+                                <div class="image-container">
+                                    <img style=" width: 150px; height: 150px" src="../../../images/{{hinh}}" id="img"
+                                        class="img-fluid" alt="Responsive image">
+                                    <!-- <img src="../images/{{hinh}}" id="img" style="width: 150px; height: 150px" class="img-thumbnail" /> -->
+                                    <div class="middle">
+                                        <input ng-show="false" type="file" onchange="readURL(this)"
+                                            id="fileUpdateImage" />
+                                        <button
+                                            style=" border-radius:10px;background: #19c880;  margin-left: 18%;margin-top:10px"
+                                            ng-click="chooseImage()" type="button" class="btn-u pull-left">Tải ảnh
+                                            lên</button>
+
+                                    </div>
+                                </div>
+                                <div class="userData ml-3">
+                                    <h2 class="d-block"
+                                        style="font-size:40px; font-weight: bold;margin-top: 8%;margin-left: 15rem"><a
+                                            href="javascript:void(0);">{{user.tenNguoiDung}}</a></h2>
+
+                                </div>
+                                <div class="ml-auto">
+                                    <input type="button" class="btn btn-primary d-none" id="btnDiscard"
+                                        value="Discard Changes" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+
+                                <div class="tab-content ml-1" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel"
+                                        aria-labelledby="basicInfo-tab">
+
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;">Họ và tên phụ huynh</label>
+                                                </div>
+                                                <div class="col-md-8 col-6">
+                                                    <input ng-model="tenNguoiDung" size="60" maxlength="255"
+                                                        class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <hr />
+
+                                            <!-- <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Birth Date</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                March 22, 1998.
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        
+                                        
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Giới tính</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                Nữ
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Địa chỉ</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                .....
+                                            </div>
+                                        </div>
+                                        <hr /> -->
+                                            <div class="row">
+                                                <div class="col-sm-3 col-md-2 col-5">
+                                                    <label style="font-weight:bold;">Số điện thoại</label>
+                                                </div>
+                                                <div class="col-md-8 col-6">
+                                                    <input disabled ng-model="soDienThoai" size="60" maxlength="255"
+                                                        class="form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <hr />
+                                            <button
+                                                style="margin-left: 38%;width:150px;font-size: 20px;border-radius: 10px ; background-color:#19c880"
+                                                class="btn-u pull-left" type="submit" ng-click="editProfile()">Cập
+                                                nhật</button>
+                                            <button data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"
+                                                style="position: absolute;width:150px;font-size: 20px;border-radius: 10px ; background-color:orange"
+                                                class="btn-u pull-left" type="submit">Đổi
+                                                mật khẩu</button>
+
+
+                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Đổi mật khẩu
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form>
+                                                                <div class="form-group">
+                                                                    <label for="recipient-name"
+                                                                        class="col-form-label">mật khẩu cũ</label>
+                                                                    <input type="text" class="form-control"
+                                                                        ng-model="oldpassword">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="message-text" class="col-form-label">Mật
+                                                                        khẩu mới:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        ng-model="newpassword">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="message-text"
+                                                                        class="col-form-label">Nhập lại mật khẩu
+                                                                        mới:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        ng-model="passwordconfirm">
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Đóng</button>
+                                                            <button ng-click="changepassword()"type="button" class="btn btn-primary">Lưu</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+    })
+</script>
+<script src="../javascripts/common.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="../javascripts/phuHuynh/profile.js"></script>

@@ -1,0 +1,69 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="../css/giaoVien/User/create.css" rel="stylesheet" id="bootstrap-css">
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+.header{
+    background: white;
+    /* width: 101%; */
+    margin-top: -20px;
+    margin-left: -40px!important;
+    margin-right: -40px!important;
+}
+
+</style>
+<body ng-app="user" ng-controller="userController" style="background-image: url(../images/hero-bg.jpg);padding: 20px">
+    <% include ../../header.ejs %> 
+    <br />
+    <p id="id" ng-show="false"><%= id %></p>
+    <div class="container" style="margin-top:5%">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="width:100%">
+            <div class="row myborder" style="background: rgba(255,255,255,.7)">
+                <h1 style="color: #19c880;font-size: 55px;text-align: center; margin: initial; margin-bottom: 10px;">
+                    Chỉnh sửa</h1>
+                <hr>
+                <label style="color: #19c880;font-size: 20px">Số điện thoại </label>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
+                    <input disabled id="sdt" ng-model="SDT" size="60" maxlength="255" class="form-control"
+                        placeholder="Số điện thoại" type="text"> </div>
+                <label style="color: #19c880; font-size: 20px">Password</label>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
+                    <input disabled id="pass" ng-model="password" size="60" maxlength="255" class="form-control"
+                        placeholder="Password" type="password"> </div>
+                <label style="color: #19c880;font-size: 20px">Tên Phụ huynh</label>
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                    <input id="ten" ng-model="tenNguoiDung" size="60" maxlength="255" class="form-control"
+                        placeholder="Nhập tên" type="text"> </div>
+                <label style="color: #19c880;font-size: 20px">Mã số học sinh</label>
+                <div class="input-group margin-bottom-20">
+
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                    <input id="mshs" ng-model="MSHS" size="60" maxlength="255" class="form-control"
+                        placeholder="mã số học sinh" type="text"> </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button style="margin-left: 38%;width:130px;font-size: 25px;border-radius: 10px ; background-color:#19c880"
+                            class="btn-u pull-left" type="submit" ng-click="sua()">Cập nhật</button>
+                            <button style="position:absolute;width:130px;margin-left: 10px;font-size: 25px;border-radius: 10px ; background-color:#d45842"
+                            class="btn-u pull-left" type="submit" ng-click="xoa()">xóa</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="/javascripts/common.js"></script>
+<script src="../javascripts/giaoVien/User/edit.js"></script>
