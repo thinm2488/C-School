@@ -51,12 +51,12 @@ router.get('/:id', async function (req, res) {
     try {
         const token =req.session.token
         phone=jwt.decode(token);
-        var user=await userController.getUserByPhone(phone.data)
+    //    var user=await userController.getUserByPhone(phone.data)
         var list = await notificationController.layChiTietNoti(req.params.id);
         noti=list.noti
         res.send({
             status:200,
-            user,
+            // user,
             noti,
         })
     } catch (error) {

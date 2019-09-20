@@ -7,6 +7,9 @@ var android= require('../pushnotification/android')
 //var common = require('../common')
 
 
+const Notification = mongoose.model('Notification')
+
+
 
 
 function sendNotificationForBirthday (user) {
@@ -26,6 +29,7 @@ async function sendNotifications ( message, type) {
    
   let users = await User.find({role:'ph'}
     )
+    
     android.sendnoti(users.map(u => u.androidToken), message, type)
          
   }

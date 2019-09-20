@@ -30,9 +30,9 @@ const createNotification = async function (data) {
 //       { code: 1, androidToken: 1})
 //     android.sendNotification(users.map(u => u.androidToken).filter(Boolean), message, type)
 //   }
-function sendNotificationForTest (token, data) {
-    sendNotification(token='', data, 'type of notification')
-  }
+// function sendNotificationForTest (token, data) {
+//     sendNotification(token='', data, 'type of notification')
+//   }
 // function sendNotification (token, message) {
 //     if (!token || !message || !type) return
 //     if (token) {

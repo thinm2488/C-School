@@ -42,9 +42,12 @@ router.get('/thongbao/:id', function(req, res, next) {
 
   res.render('giaoVien/notification/edit', { id:id });
 });
+//HỌc Sinh
 
-
-
+router.get('/hocsinh/create', function(req, res, next) {
+  res.render('giaoVien/hocSinh/create', { title: 'Ho-so' });
+});
+//Phụ Huynh
 router.get('/Home/Phuhuynh', function(req, res, next) {
   res.render('phuHuynh/Home', { title: 'Sign-in' });
 });

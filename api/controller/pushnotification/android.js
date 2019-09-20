@@ -38,15 +38,19 @@ var serverKey = 'AIzaSyA3CE-n8z68M8wYvpJGVvOt8SxnI1z5M24'; //put your server key
 var fcm = new FCM(serverKey);
 
 function sendnoti(token, str, type){
+
   for(var i=0;i<=token.length;i++){
     var message = { //this may vary according to the message type (single recipient, multicast, topic, et cetera)
       //to: token, //single device
       //collapse_key: 'your_collapse_key',
       to: token[i], //single device
       notification: {
-          title: str.chuDe, 
-          body: str.noiDung 
+          title: str.nguoiTao, 
+          body: str.noiDung ,
+          tag:str.idfirebase,
+
       },
+      
       
      
   };
