@@ -9,9 +9,9 @@ const path = require('path');
 // var passport = require('../controller/passport').passport
 // var multipart = require('connect-multiparty')
 // var multipartMiddleware = multipart()
-router.get('/getall', async function (req, res) {
+router.post('/getall', async function (req, res) {
     try {
-        var list = await studentController.laystudent();
+        var list = await studentController.laystudent(req.body);
         res.send({
             list,
         })

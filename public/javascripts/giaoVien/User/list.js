@@ -14,6 +14,7 @@ app.controller('userController', function ($scope, $http) {
 
     })
     
+    
     $scope.checkrole=function(){
         var role=getCookie("role")
         if(role=="gv"){

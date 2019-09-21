@@ -14,8 +14,8 @@ const createStudent = async function (data) {
     }
 
 }
-const laystudent = async function () {
-    var liststudent = await Student.find();
+const laystudent = async function (data) {
+    var liststudent = await Student.find({lop:data.lop,loai:data.loai});
     return {
         liststudent
     }
