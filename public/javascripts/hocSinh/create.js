@@ -27,7 +27,7 @@ app.controller('createController', function ($scope, $http) {
             window.alert('Lưu thông tin thành công');
 
 
-           // window.location.href = "/phuHuynh/hoso";
+           window.location.href = "/hocSinh/list";
         }).catch(function (res) {
             console.log(res)
             window.alert(res.data.errorMessage);
