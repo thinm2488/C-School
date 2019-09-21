@@ -5,12 +5,27 @@ var formData = new FormData();
 
 app.controller('createController', function ($scope, $http) {
 
-    
-   
+    var id = $('#id').text();
+    $http.get("/api/route/student/"+id).then(function (res) {
+        $scope.tenHocSinh = res.data.student.tenHocSinh;
+        $scope.lop = res.data.student.lop;
+        $scope.loai = res.data.student.loai;
+        $scope.ngaySinh = res.data.student.ngaySinh;
+        $scope.gioiTinh = res.data.student.gioiTinh;
+        $scope.diaChi = res.data.student.diaChi;
+        $scope.queQuan = res.data.student.queQuan;
+        $scope.hinh = res.data.student.hinh;
+      
+
+      
+     
+
+     
+    });
 
 
-    $scope.tao = function () {
-
+    $scope.sua = function () {
+        formData.append("id",id);
         formData.append("tenHocSinh", $scope.tenHocSinh);
         formData.append("lop", $scope.lop);
         formData.append("loai", $scope.loai);
@@ -19,15 +34,29 @@ app.controller('createController', function ($scope, $http) {
         formData.append("ngaySinh", $scope.ngaySinh);
         formData.append("queQuan", $scope.queQuan);
         $http({
-            method: 'POST',
-            url: window.location.origin + '/api/route/student/create',
+            method: 'PUT',
+            url: window.location.origin + '/api/route/student/update',
             data: formData,
             headers: { 'Content-Type': undefined }
         }).then(function (res) {
             window.alert('Lưu thông tin thành công');
 
 
-           // window.location.href = "/phuHuynh/hoso";
+           window.location.href = "/hocSinh/list";
+        }).catch(function (res) {
+            console.log(res)
+            window.alert(res.data.errorMessage);
+        })
+
+    }
+    $scope.xoa = function () {
+        $http.delete("/api/route/student/" + id).then(function (res) {
+
+
+            window.location.href = "/hocSinh/list";
+
+            window.alert('Xóa thành công!');
+
         }).catch(function (res) {
             console.log(res)
             window.alert(res.data.errorMessage);
@@ -36,11 +65,10 @@ app.controller('createController', function ($scope, $http) {
     }
 
 
-
     $scope.chooseImage = function () {
 
         document.getElementById("fileUpdateImage").click()
-        setCookie("hinh", document.getElementById("fileUpdateImage"))
+        // setCookie("hinh", document.getElementById("fileUpdateImage"))
     }
     $scope.danhSachLop = [
         { name: '1', value: '1' },

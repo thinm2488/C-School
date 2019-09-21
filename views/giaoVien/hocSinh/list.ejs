@@ -1,0 +1,101 @@
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="../../css/giaoVien/User/create.css" rel="stylesheet" id="bootstrap-css">
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+
+
+body > div > div.col-md-6 > table > thead > tr > th{
+    width: 20%;
+}
+.qư{
+  white-space: nowrap;
+    /* border: solid 1px; */
+   width: 350px;
+    /* height: 18px; */
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
+.my-custom-scrollbar {
+position: relative;
+height: 420px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
+a {
+    color: black !important;
+    text-decoration: none;
+}
+</style>
+<body ng-app="user" ng-controller="studentController" style="background-image: url(../images/hero-bg.jpg);padding: 20px">
+ <div class="row" style="margin:-20px; height: 8%;background-color: white">
+ <div class="col-12">
+        <% include ../../header.ejs %> 
+<br />
+<div class="container" style="margin-top:5%;background: rgba(255,255,255,.7)">
+    <div class="col-md-3"></div>
+    <div class="col-md-6" style="width:100%">
+        <h1 style="text-align: center;font-size:50px!important;color:#19c880;padding: 25px">Danh sách học sinh</h1>
+        <table    class="table table-wrapper-scroll-y my-custom-scrollbar">
+            <thead>
+              <tr>
+                <th scope="col">Ảnh</th>
+                <th scope="col">Tên Học Sinh</th>
+                <th scope="col">Lớp</th>
+                <th scope="col">Ngày Sinh</th>
+                <th scope="col">DiaChi</th>
+                <th scope="col"></th>
+                
+               
+                <!-- <th style="width:15%" scope="col"></th> -->
+               
+              </tr>
+            </thead>
+            <tbody ng-repeat="student in liststudent">
+             
+              <tr>
+                
+                <td ><a href="/hocSinh/{{student._id}}"><img style="width: 60px;height: 60px;border-radius: 50%;" src="../images/{{student.hinh}}"/></a></td>
+                <td style="text-overflow: ellipsis; ;padding-top: 20px"><a href="/hocSinh/{{student._id}}"><p class="qư">{{student.tenHocSinh}}</p></a></td>
+                <td style="padding-top: 20px;width: 20%;"><a href="/hocSinh/{{student._id}}">{{student.lop}}{{student.loai}}</a></td>
+
+                <td style="padding-top: 20px;width: 20%"><a href="/hocSinh/{{student._id}}">{{student.ngaySinh| date:'hh:mm  dd/MM'}}</a></td>
+                <td style="text-overflow: ellipsis; ;padding-top: 20px"><a href="/hocSinh/{{student._id}}"><p class="qư">{{student.diaChi}}</p></a></td>
+                <td ><a href="/hocSinh/{{student._id}}"><button class="btn btn-warning"> <span class="glyphicon glyphicon-pencil"></span></button></a> </td>
+
+                
+                <!-- <td ><a href="/user/{{user._id}}"><button class="btn btn-warning"> <span class="glyphicon glyphicon-pencil"></span>&ensp; Sửa</button></a> </td> -->
+              </a>
+              </tr>
+            
+            </tbody>
+          </table>
+          <a href="/hocSinh/create"><button style=" margin-bottom: 30px;margin-left: 38%;font-size: 25px;border-radius: 10px ; background-color:#19c880"
+          class="btn-u pull-left" type="button" ><span class="glyphicon glyphicon-plus-sign"></span>&ensp; Thêm Học Sinh</button></a>
+    </div>
+      </div>
+    </body>
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script> -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+<script src="/javascripts/common.js"></script>
+
+<script src="../javascripts/hocSinh/list.js"></script>
+
+ 

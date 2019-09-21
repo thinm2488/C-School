@@ -188,8 +188,7 @@ router.put('/', fileUpload(), async function (req, res) {
         res.status(500).send({ errorMessage: error.message })
     }
 });
-router.
-post('/change-avatar', multipartMiddleware, async function (req, res) {
+router.post('/change-avatar', multipartMiddleware, async function (req, res) {
     const token = req.headers['x-access-token'] || req.session.token
     
  

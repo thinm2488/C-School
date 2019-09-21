@@ -7,10 +7,12 @@ var session = require('express-session');
 
 require('./api/model/User');
 require('./api/model/Notification');
+require('./api/model/Student');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var userRouter = require('./api/route/user')
 var notiRouter = require('./api/route/notification')
+var studentRouter = require('./api/route/student')
 
 var app = express();
 
@@ -37,7 +39,9 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/route/user', userRouter)
+app.use('/api/route/student', studentRouter)
 app.use('/api/route/notification', notiRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

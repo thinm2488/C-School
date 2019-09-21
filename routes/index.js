@@ -47,6 +47,15 @@ router.get('/thongbao/:id', function(req, res, next) {
 router.get('/hocsinh/create', function(req, res, next) {
   res.render('giaoVien/hocSinh/create', { title: 'Ho-so' });
 });
+router.get('/hocsinh/list', function(req, res, next) {
+  res.render('giaoVien/hocSinh/list', { title: 'List' });
+});
+router.get('/hocSinh/:id', function(req, res, next) {
+  var id = req.params.id;
+
+
+  res.render('giaoVien/hocSinh/edit', { id:id });
+});
 //Phụ Huynh
 router.get('/Home/Phuhuynh', function(req, res, next) {
   res.render('phuHuynh/Home', { title: 'Sign-in' });

@@ -9,6 +9,7 @@
 <body ng-app="user" ng-controller="createController" style="background-image: url(../images/hero-bg.jpg)">
     <% include ../../header.ejs %>
 <div style="margin-top:6%"class="container">
+        <p id="id" ng-show="false"><%= id %></p>
         <div class="row">
             <div class="col-12">
                 <div  style="background: rgba(255,255,255,.7);"class="card">
@@ -25,7 +26,7 @@
                                      
                                     <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
                                             <div class="image-container" style="float: right;margin-right:20px">
-                                                    <img style=" width: 210px; height: 250px" src="../images/Capture.PNG" id="img" class="img-fluid" alt="Responsive image">
+                                                    <img style=" width: 210px; height: 250px" src="../images/{{hinh}}" id="img" class="img-fluid" alt="Responsive image">
                                                 <!-- <img src="../images/{{hinh}}" id="img" style="width: 150px; height: 150px" class="img-thumbnail" /> -->
                                                 <div class="middle">
                                                         <input ng-show="false" type="file" onchange="readURL(this)"  id="fileUpdateImage"/>
@@ -56,18 +57,17 @@
                                                 <label style="font-weight:bold;">Lớp</label>
                                             </div>
                                             <div class="col-md-4 col-3">
-                                                <select style="width:220px;border-radius: 10px"  id="lop"class="form-control" id="exampleFormControlSelect1" ng-model="lop" ng-options="option.value as option.name for option in danhSachLop" >
-                                                 
-                                                </select> 
-                                                                                     
-                                            </div>
-                                            <div class="col-md-4 col-3">
-                                                    <select style="width:220px;border-radius: 10px"  id="loai"class="form-control" id="exampleFormControlSelect1" ng-model="loai" ng-options="option.value as option.name for option in danhSachLoai" >
-                                                 
-                                                        </select>      
+                                                    <select style="width:220px;border-radius: 10px"  id="lop"class="form-control" id="exampleFormControlSelect1" ng-model="lop" ng-options="option.value as option.name for option in danhSachLop" >
+                                                     
+                                                    </select> 
                                                                                          
                                                 </div>
-                                          
+                                                <div class="col-md-4 col-3">
+                                                        <select style="width:220px;border-radius: 10px"  id="loai"class="form-control" id="exampleFormControlSelect1" ng-model="loai" ng-options="option.value as option.name for option in danhSachLoai" >
+                                                     
+                                                            </select>      
+                                                                                             
+                                                    </div>
                                         </div>
                                         <hr />
                                       
@@ -115,8 +115,10 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                    <button style="margin-left: 42%;font-size: 25px;border-radius: 10px ; background-color:#19c880"class="btn-u pull-left" type="submit" ng-click="tao()">Thêm học sinh</button>
-                                </div>
+                                    <button style="margin-left: 38%;width:130px;font-size: 25px;border-radius: 10px ; background-color:#19c880"
+                                    class="btn-u pull-left" type="submit" ng-click="sua()">Cập nhật</button>
+                                    <button style="position:absolute;width:130px;margin-left: 10px;font-size: 25px;border-radius: 10px ; background-color:#d45842"
+                                    class="btn-u pull-left" type="submit" ng-click="xoa()">xóa</button>                                </div>
                         </div>
 
 
@@ -141,5 +143,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-    <script src="../javascripts/hocSinh/create.js"></script>
+    <script src="../javascripts/hocSinh/edit.js"></script>
     
